@@ -28,17 +28,16 @@ def nbc(data):
 
 	for i in range (0, len(data)): # counting
 		out = data[i][2]
-		print out
 		for j in range(0, len(data[i][1])): # loop through each word
 			countList[out][data[i][1][j]]+= 1
 			words[data[i][1][j]] += 1
 			totalList[out] += 1
 			
 
-	print words
-	print 
-	printDict(countList)
-	print totalList
+	# print words
+	# print 
+	# printDict(countList)
+	# print totalList
 	return words, countList, totalList
 	
 
@@ -60,11 +59,11 @@ def accuracy(data,words, countList, totalList):
 			error += 1
 
 	print 'ERROR: ', (error*1.0/len(data))
+	print 'Accuracy: ', (1 - (error*1.0/len(data)))
 
 
 def predict(dataPoint,words, countList, totalList):
 	predict = [1.0] * 5
-	print 'here i am'
 	for i in range(0, len(dataPoint)): # i is each word
 		if dataPoint[i] in words:
 			for j in range (0, len(predict)):
@@ -78,19 +77,18 @@ def main():
 	trainingFile = sys.argv[1]
 	testFile = sys.argv[2]
 
-	print 'point 1'
-
 	data = pd.read_csv(trainingFile, sep=',' , quotechar='"', header=0, engine='python')
-	exit()
-	testData = pd.read_csv(testFile, sep=',' , quotechar='"', header=0, engine='python')
+	testData = pd.read_csv(trainingFile, sep=',' , quotechar='"', header=0, engine='python')
 	data = data.as_matrix()
 	testData = testData.as_matrix()
-	print 'point 2'
-	exit()
 
 	out = nbc(data)
 	accuracy(data, out[0], out[1], out[2])
 
+	for i in range (0, len(testData)):
+		testData[i][1] = testData[i][1].split()
+	accuracy(testData, out[0], out[1], out[2])
+	
 
 
 if __name__ == '__main__':
