@@ -1,8 +1,10 @@
-id,text
-0,"Cuadrilla files to delay application to frack in Lancashire"
-1,"Royal Mail chairman Donald Brydon set to step down"
-2,"UPDATE 2-EasyJet sees better first half on lower fuel bill"
-3,"Slump in Weir leads FTSE down from record high"
-4,"AstraZeneca wins FDA approval for key new lung cancer pill"
-5,"Sainsbury chief warns of squeeze on high street retailers"
-6,"UPDATE 1-Lloyds to cut 945 jobs as part of 3-year restructuring plan"
+id,text,sentiment
+0,"Morrisons book second consecutive quarter of sales growth",3
+1,"IMI posts drop in first-quarter organic revenue; warns on full year",1
+2,"Glencore to refinance its short-term debt early, shares rise",3
+3,"EasyJet attracts more passengers in June but still lags Ryanair",3
+4,"Barclays 'bad bank' chief to step down",1
+5,"Bilfinger Industrial Services win Â£100m BP contract extension",2
+6,"Bilfinger Industrial Services win Â£100m BP contract extension",3
+7,"Barclays share price subdued as bank faces fresh forex probe",1
+8,"Centrica prepared for takeover approach - chairman",2
