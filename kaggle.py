@@ -74,11 +74,14 @@ def accuracy(data,words, countList, totalList):
 		print data[i]
 		prediction = predict(data[i][1], words, countList, totalList)
 		bestClass = prediction.index(max(prediction))
+		print "OVERALL: " 
+		print prediction
+		
 		if bestClass != data[i][2]:	
+			print "ERROR:   Prediction: "  + str(bestClass) + "     Actual: " + str(data[i][2])
 			error += 1
+		print
 
-	# print 'ERROR: ', (error*1.0/len(data))
-	# print 'Accuracy: ', (1 - (error*1.0/len(data)))
 	error =  (error*1.0/len(data))
 	accuracy = (1 - error)
 	return error, accuracy
@@ -126,7 +129,6 @@ def predict(dataPoint,words, countList, totalList):
 		predict[x] = predict[x] + math.log(totalList[x])
 		pass
 
-	print
 	return predict
 
 def main():
@@ -142,8 +144,6 @@ def main():
 	out = nbc(data)
 	trainReturn = accuracy(data, out[0], out[1], out[2])
 
-	print testData
-	print data
 	ps = nltk.stem.PorterStemmer()
 	#parses into words and stems each word of test set
 	for i in range (0, len(testData)):
@@ -155,9 +155,9 @@ def main():
  			except UnicodeDecodeError:
  				testData[i][1][j] = testData[i][1][j]
  				pass
- 	print testData
-	testPredict(testData, out[0], out[1], out[2])
-	print len(out[0])
+	
+
+	#testPredict(testData, out[0], out[1], out[2])
 	print 'ERROR: ', trainReturn[0]
 	print 'Accuracy: ', trainReturn[1]
 	
